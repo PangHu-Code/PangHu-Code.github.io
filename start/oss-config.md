@@ -10,21 +10,22 @@
 
 ```json
 {
-    "domain": [
-        "https://api1.example.com/api/v1",
-        "https://api2.example.com/api/v1",
-        "https://api3.example.com/api/v1"
-    ],
-    "version": {
-        "windows": "1.0.0",
-        "macos": "1.0.0",
-        "android": "1.0.0"
-    },
-    "download": "https://download.example.com",
-    "website": "https://www.example.com",
-    "invitationWebsite": "https://invite.example.com",
-    "notes": "版本更新说明",
-    "imgbbApiKey": "your_imgbb_api_key_here"
+  "domain": [
+    "https://api1.example.com/api/v1",
+    "https://api2.example.com/api/v1",
+    "https://api3.example.com/api/v1"
+  ],
+  "version": {
+    "windows": "1.0.0",
+    "macos": "1.0.0",
+    "android": "1.0.0"
+  },
+  "minSupportedVersion": "1.0.0",
+  "download": "https://download.example.com",
+  "website": "https://www.example.com",
+  "invitationWebsite": "https://invite.example.com",
+  "notes": "版本更新说明",
+  "imgbbApiKey": "your_imgbb_api_key_here"
 }
 ```
 
@@ -37,11 +38,35 @@
 | `version.windows` | String | ✅ | Windows 客户端最新版本 |
 | `version.macos` | String | ✅ | macOS 客户端最新版本 |
 | `version.android` | String | ✅ | Android 客户端最新版本 |
+| `minSupportedVersion` | String | ❌ | 最低支持版本，低于此版本的用户将被**强制更新**（无法跳过） |
 | `download` | String | ✅ | 客户端下载页面地址 |
 | `website` | String | ✅ | 官网地址，用于"打开官网"功能（可以是官网、地址发布页或导航站） |
 | `invitationWebsite` | String | ❌ | 拼接邀请地址的网址。如未填写，客户端内点击复制邀请码则仅复制邀请码 code |
 | `notes` | String | ❌ | 版本更新说明/公告 |
 | `imgbbApiKey` | String | ❌ | ImgBB 图床 API Key（用于上传图片） |
+
+---
+
+## 强制更新说明
+
+通过设置 `minSupportedVersion` 字段可以远程控制强制更新：
+
+- 当用户的 App 版本 < `minSupportedVersion` 时，会弹出强制更新界面
+- 用户无法跳过，必须更新才能继续使用
+- 适用于有破坏性变更（如 API 变化、加密方式变更）时使用
+
+**示例**：
+```json
+{
+  "version": {
+    "windows": "1.2.0",
+    "macos": "1.2.0",
+    "android": "1.2.0"
+  },
+  "minSupportedVersion": "1.1.0"
+}
+```
+上述配置表示：版本低于 1.1.0 的用户会被强制更新，1.1.0 及以上用户可正常使用。
 
 ---
 
@@ -63,20 +88,21 @@
 
 ```json
 {
-    "domain": [
-        "https://api1.example.com/api/v1",
-        "https://api2.example.com/api/v1"
-    ],
-    "version": {
-        "windows": "1.0.0",
-        "macos": "1.0.0",
-        "android": "1.0.0"
-    },
-    "download": "https://download.example.com",
-    "website": "https://www.example.com",
-    "invitationWebsite": "https://invite.example.com",
-    "notes": "v1.0.0 首次发布",
-    "imgbbApiKey": "a1b2c3d4e5f6g7h8i9j0"
+  "domain": [
+    "https://api1.example.com/api/v1",
+    "https://api2.example.com/api/v1"
+  ],
+  "version": {
+    "windows": "1.2.0",
+    "macos": "1.2.0",
+    "android": "1.2.0"
+  },
+  "minSupportedVersion": "1.2.0",
+  "download": "https://download.example.com",
+  "website": "https://www.example.com",
+  "invitationWebsite": "https://invite.example.com",
+  "notes": "v1.0.0 首次发布",
+  "imgbbApiKey": "a1b2c3d4e5f6g7h8i9j0"
 }
 ```
 
