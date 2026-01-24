@@ -16,17 +16,19 @@
     "https://api3.example.com/api/v1"
   ],
   "version": {
-    "windows": "1.4.0",
-    "macos": "1.4.0",
-    "android": "1.4.0"
+    "windows": "1.5.0",
+    "macos": "1.5.0",
+    "android": "1.5.0"
   },
-  "minSupportedVersion": "1.4.0",
+  "minSupportedVersion": "1.5.0",
   "download": "https://download.example.com",
   "website": "https://www.example.com",
   "invitationWebsite": "https://invite.example.com",
   "notes": "版本更新说明",
   "imgbbApiKey": "your_imgbb_api_key_here",
-  "logo": "https://your-oss.com/logo.png"
+  "logo": "https://your-oss.com/logo.png",
+  "customerServiceType": "chatwoot",
+  "customerServiceToken": "your_customer_service_token_here"
 }
 ```
 
@@ -46,6 +48,8 @@
 | `notes` | String | ❌ | 版本更新说明/公告 |
 | `imgbbApiKey` | String | ❌ | ImgBB 图床 API Key（用于上传图片） |
 | `logo` | String | ✅ | 应用 Logo 的 URL 地址（格式要求见下方说明） |
+| `customerServiceType` | String | ❌ | 在线客服类型，目前仅支持 `chatwoot` 或 `crisp` |
+| `customerServiceToken` | String | ❌ | 客服系统的密钥 (Token) |
 
 ---
 
@@ -83,14 +87,14 @@
 ```json
 {
   "version": {
-    "windows": "1.4.0",
-    "macos": "1.4.0",
-    "android": "1.4.0"
+    "windows": "1.5.0",
+    "macos": "1.5.0",
+    "android": "1.5.0"
   },
-  "minSupportedVersion": "1.4.0"
+  "minSupportedVersion": "1.5.0"
 }
 ```
-上述配置表示：版本低于 1.4.0 的用户会被强制更新，1.4.0 及以上用户可正常使用。
+上述配置表示：版本低于 1.5.0 的用户会被强制更新，1.5.0 及以上用户可正常使用。
 
 ---
 
@@ -117,17 +121,19 @@
     "https://api2.example.com/api/v1"
   ],
   "version": {
-    "windows": "1.4.0",
-    "macos": "1.4.0",
-    "android": "1.4.0"
+    "windows": "1.5.0",
+    "macos": "1.5.0",
+    "android": "1.5.0"
   },
-  "minSupportedVersion": "1.4.0",
+  "minSupportedVersion": "1.5.0",
   "download": "https://download.example.com",
   "website": "https://www.example.com",
   "invitationWebsite": "https://invite.example.com",
   "notes": "v1.0.0 首次发布",
   "imgbbApiKey": "a1b2c3d4e5f6g7h8i9j0",
-  "logo": "https://your-oss.com/logo.png"
+  "logo": "https://your-oss.com/logo.png",
+  "customerServiceType": "chatwoot",
+  "customerServiceToken": "a1b2c3d4e5f6g7h8i9j0"
 }
 ```
 
