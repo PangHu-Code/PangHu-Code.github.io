@@ -165,9 +165,9 @@
 ```
 1. 编写原始 JSON
       ↓
-2. 验证 JSON 格式（jsonlint.com）
+2. 验证 JSON 格式
       ↓
-3. 在线加密（panghu.com）
+3. 在线加密
       ↓
 4. 下载加密文件并上传到 OSS
       ↓
