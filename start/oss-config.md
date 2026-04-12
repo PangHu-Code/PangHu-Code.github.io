@@ -28,7 +28,9 @@
   "imgbbApiKey": "your_imgbb_api_key_here",
   "logo": "https://your-oss.com/logo.png",
   "customerServiceType": "chatwoot",
-  "customerServiceToken": "your_customer_service_token_here"
+  "customerServiceToken": "your_customer_service_token_here",
+  "latencyReductionPct": "10",
+  "minLatencyThresholdMs": "200"
 }
 ```
 
@@ -50,6 +52,17 @@
 | `logo` | String | ✅ | 应用 Logo 的 URL 地址（格式要求见下方说明） |
 | `customerServiceType` | String | ❌ | 在线客服类型，目前仅支持 `chatwoot` 或 `crisp` |
 | `customerServiceToken` | String | ❌ | 客服系统的密钥 (Token) |
+| `latencyReductionPct` | String | ❌ | 降低延迟的百分比（例如 `"10"` 表示在阈值之上再降低 10%）。**可选**；若填写则必须同时填写 `minLatencyThresholdMs`，由最小阈值参与控制逻辑 |
+| `minLatencyThresholdMs` | String | ❌ | 延迟最小阈值（毫秒）。**可选**；当配置了 `latencyReductionPct` 时**必填**，与百分比配合使用 |
+
+**成对约束**：`latencyReductionPct` 与 `minLatencyThresholdMs` 均可不填；一旦填写 `latencyReductionPct`，必须填写 `minLatencyThresholdMs`，否则配置不完整。
+
+> **Tips：如何验证 API 地址是否正确**
+>
+> 在地址后面加上 **`/guest/comm/config`**，用浏览器打开；若能访问通并返回站点配置信息，说明地址是对的。
+>
+> **示例完整 URL**：`https://www.demo.com/api/v1/guest/comm/config`  
+> （请按你实际配置的协议与域名替换；浏览器访问时需带 `https://` 等完整 URL。）
 
 ---
 
@@ -133,7 +146,9 @@
   "imgbbApiKey": "a1b2c3d4e5f6g7h8i9j0",
   "logo": "https://your-oss.com/logo.png",
   "customerServiceType": "chatwoot",
-  "customerServiceToken": "a1b2c3d4e5f6g7h8i9j0"
+  "customerServiceToken": "a1b2c3d4e5f6g7h8i9j0",
+  "latencyReductionPct": "10",
+  "minLatencyThresholdMs": "200"
 }
 ```
 
