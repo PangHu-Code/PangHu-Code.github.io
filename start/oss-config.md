@@ -160,12 +160,13 @@
 上传前请先验证 JSON 格式是否正确：
 
 - 在线验证：https://jsonlint.com/
+- JSON 格式化/转换：https://tool.oschina.net/codeformat/json
 
 ### 步骤 4：加密并上传到 OSS
 
-1. 访问 https://encrypt.panghu.wiki/
-2. 粘贴 JSON 内容进行非对称加密
-3. 下载加密后的文件
+1. 打开 TG 机器人：https://t.me/panghu_client_bot
+2. 按机器人提示提交 JSON 内容进行加密
+3. 获取加密后的文件
 4. 登录阿里云 OSS / 腾讯云 COS / 其他对象存储，上传文件
 5. 设置文件为**公开读取**权限，获取访问 URL
 
