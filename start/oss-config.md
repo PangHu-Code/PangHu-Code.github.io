@@ -16,11 +16,11 @@
     "https://api3.example.com/api/v1"
   ],
   "version": {
-    "windows": "1.5.0",
-    "macos": "1.5.0",
-    "android": "1.5.0"
+    "windows": "2.4.0",
+    "macos": "2.4.0",
+    "android": "2.4.0"
   },
-  "minSupportedVersion": "1.5.0",
+  "minSupportedVersion": "2.0.0",
   "download": "https://download.example.com",
   "website": "https://www.example.com",
   "invitationWebsite": "https://invite.example.com",
@@ -30,7 +30,10 @@
   "customerServiceType": "chatwoot",
   "customerServiceToken": "your_customer_service_token_here",
   "latencyReductionPct": "10",
-  "minLatencyThresholdMs": "200"
+  "minLatencyThresholdMs": "200",
+  "userAgents": [
+    { "label": "CFW测试", "value": "ClashforWindows/99.99.99" }
+  ]
 }
 ```
 
@@ -54,6 +57,11 @@
 | `customerServiceToken` | String | ❌ | 客服系统的密钥 (Token) |
 | `latencyReductionPct` | String | ❌ | 降低延迟的百分比（例如 `"10"` 表示在阈值之上再降低 10%）。**可选**；若填写则必须同时填写 `minLatencyThresholdMs`，由最小阈值参与控制逻辑 |
 | `minLatencyThresholdMs` | String | ❌ | 延迟最小阈值（毫秒）。**可选**；当配置了 `latencyReductionPct` 时**必填**，与百分比配合使用 |
+| `userAgents` | Array | ❌ | 客户端可选的 User-Agent 预设列表，用户可在客户端内切换 |
+| `userAgents[].label` | String | ❌ | 预设项在客户端中显示的名称（如 `"CFW测试"`） |
+| `userAgents[].value` | String | ❌ | 实际发送的 User-Agent 字符串（如 `"ClashforWindows/99.99.99"`） |
+
+**`userAgents` 说明**：可选配置，用于向客户端下发一组 User-Agent 预设。每项包含 `label`（展示名称）和 `value`（请求时使用的 UA 字符串）。可配置多项，客户端会展示为可选项供用户切换；不填则使用客户端默认行为。
 
 **成对约束**：`latencyReductionPct` 与 `minLatencyThresholdMs` 均可不填；一旦填写 `latencyReductionPct`，必须填写 `minLatencyThresholdMs`，否则配置不完整。
 
@@ -96,14 +104,14 @@
 ```json
 {
   "version": {
-    "windows": "1.5.0",
-    "macos": "1.5.0",
-    "android": "1.5.0"
+    "windows": "2.4.0",
+    "macos": "2.4.0",
+    "android": "2.4.0"
   },
-  "minSupportedVersion": "1.5.0"
+  "minSupportedVersion": "2.0.0"
 }
 ```
-上述配置表示：版本低于 1.5.0 的用户会被强制更新，1.5.0 及以上用户可正常使用。
+上述配置表示：版本低于 2.0.0 的用户会被强制更新，2.0.0 及以上用户可正常使用。
 
 ---
 
@@ -130,11 +138,11 @@
     "https://api2.example.com/api/v1"
   ],
   "version": {
-    "windows": "1.5.0",
-    "macos": "1.5.0",
-    "android": "1.5.0"
+    "windows": "2.4.0",
+    "macos": "2.4.0",
+    "android": "2.4.0"
   },
-  "minSupportedVersion": "1.5.0",
+  "minSupportedVersion": "2.0.0",
   "download": "https://download.example.com",
   "website": "https://www.example.com",
   "invitationWebsite": "https://invite.example.com",
@@ -144,7 +152,10 @@
   "customerServiceType": "chatwoot",
   "customerServiceToken": "a1b2c3d4e5f6g7h8i9j0",
   "latencyReductionPct": "10",
-  "minLatencyThresholdMs": "200"
+  "minLatencyThresholdMs": "200",
+  "userAgents": [
+    { "label": "CFW测试", "value": "ClashforWindows/99.99.99" }
+  ]
 }
 ```
 
